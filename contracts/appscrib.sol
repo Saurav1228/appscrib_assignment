@@ -22,15 +22,6 @@ interface IERC20 {
         uint256 amount
     ) external returns (bool);
 
-    //
-
-    // function retriveRegistry  (address account)
-    //     external
-    //     view
-    //     returns (
-    //         string
-    //     );
-
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     //event register
@@ -88,8 +79,6 @@ contract ERC20Basic is IERC20 {
     using SafeMath for uint256;
 
     constructor(string memory firstName, string memory lastName) public {
-        // totalSupply_ = total;
-        // balances[msg.sender] = totalSupply_;
         registry_firstName[msg.sender] = firstName;
         registry_lastName[msg.sender] = lastName;
         registry_userType[msg.sender] = 2;
@@ -107,20 +96,6 @@ contract ERC20Basic is IERC20 {
     {
         return balances[tokenOwner];
     }
-
-    //
-
-    // function retriveRegistry(address tokenOwner)
-    //     public
-    //     view
-    //     returns (
-    //         string
-    //     )
-    // {
-    //     return (
-    //         registry[tokenOwner]
-    //     );
-    // }
 
     function transfer(address receiver, uint256 numTokens)
         public
